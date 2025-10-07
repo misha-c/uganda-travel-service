@@ -1,0 +1,65 @@
+---
+import "../styles/global.css";
+import Navbar from '../components/Navbar.astro';
+const title = "Destinations";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <link rel="stylesheet" href="../styles/global.css">
+  </head>
+  <body>
+    <Navbar />
+    <header>
+      <h1>{title}</h1>
+      <p>Explore Uganda’s amazing destinations and experiences.</p>
+    </header>
+
+    <main>
+      <section>
+        <h2>National Parks & Wildlife</h2>
+        <ul>
+          <li><strong>Bwindi Impenetrable Forest</strong> – Gorilla trekking</li>
+          <li><strong>Queen Elizabeth National Park</strong> – Safari, tree-climbing lions</li>
+          <li><strong>Murchison Falls National Park</strong> – River cruises, waterfalls</li>
+          <li><strong>Kidepo Valley National Park</strong> – Remote wilderness safaris</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Cultural & Historical Sites</h2>
+        <ul>
+          <li><strong>Kasubi Tombs</strong> – UNESCO World Heritage site</li>
+          <li><strong>Uganda Museum</strong> – Cultural exhibits in Kampala</li>
+          <li><strong>Ssese Islands</strong> – Traditional fishing villages</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Natural Wonders</h2>
+        <ul>
+          <li><strong>Lake Victoria</strong> – Africa’s largest lake, fishing & boating</li>
+          <li><strong>Rwenzori Mountains</strong> – Hiking and snow-capped peaks</li>
+          <li><strong>Sipi Falls</strong> – Waterfalls and coffee plantations</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Adventure & Eco-Tourism</h2>
+        <ul>
+          <li><strong>White-water rafting on the Nile</strong> – Jinja</li>
+          <li><strong>Hiking and camping</strong> – Rwenzori, Mgahinga</li>
+          <li><strong>Bird watching</strong> – Over 1,000 species in Uganda</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Uganda Travel Services</p>
+      <img src="/uganda-travel-service/uganda-flag.svg"  alt="Ugandan Flag - A crested crane on a field of Red, Yellow, and Black" width="200" />
+    </footer>
+  </body>
+</html>

@@ -1,11 +1,45 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import "../styles/global.css";
+import Navbar from '../components/Navbar.astro';
+const title = "Hamidah's Super Fantastic Uganda Travel Services";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Navbar />
+    
+    <!-- Hero Section -->
+    <header>
+      <h1>Welcome to {title}</h1>
+      <p>
+        Your guide to eco-tourism, adventure, and local culture in Uganda
+      </p>
+    </header>
+
+    <!-- Main Content -->
+    <main style="padding: 2rem;">
+      <section>
+        <h2>Explore Destinations</h2>
+        <p>Discover Uganda’s national parks, cultural experiences, and hidden gems.</p>
+        <a href={"/uganda-travel-service/destinations"} class="button">Explore Destinations! →</a>
+      </section>
+
+      <section>
+        <h2>Plan Your Adventure</h2>
+        <p>Get tips, guides, and relocation advice to make your trip unforgettable.</p>
+        <a href={"/uganda-travel-service/plan"} class="button">Plan Your Adventure! →</a>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 Uganda Travel Services</p>
+      <img src="uganda-travel-service/uganda-flag.svg"  alt="Ugandan Flag - A crested crane on a field of Red, Yellow, and Black" width="200" />
+    </footer>
+  </body>
+</html>
