@@ -5,5 +5,5 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({ 
     site: 'https://misha-c.github.io/uganda-travel-service/',
     base: '/uganda-travel-service', 
-    outDir: './dist',
+    output: "static",
 });
