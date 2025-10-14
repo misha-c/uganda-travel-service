@@ -1,5 +1,4 @@
 ---
-import "../styles/global.css";
 const title = "Eco Tribe Adventures";
 const tagline = "Adventure with Purpose";
 ---
@@ -11,6 +10,132 @@ const tagline = "Adventure with Purpose";
     <meta name="description" content="Discover Africa through eco-conscious journeys that connect people, planet, and culture." />
     <title>{title} - {tagline}</title>
     <style>
+
+        /* ============================================
+        CSS Custom Properties (Color Palette)
+        ============================================ */
+        :root {
+            /* Color Palette */
+            --earth-clay: #B76E48;
+            --savanna-green: #5C7A52;
+            --nile-blue: #3A7CA5;
+            --sunrise-gold: #E1A948;
+            --charcoal-earth: #2E2E2E;
+            --sand-beige: #EADAC3;
+            
+            /* Neutral for text on dark backgrounds */
+            --white: #FFFFFF;
+        }
+        
+        /* ============================================
+            Base Styles
+            ============================================ */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: var(--sand-beige);
+            color: var(--charcoal-earth);
+        }
+        
+        /* ============================================
+            Layout Components
+            ============================================ */
+        header {
+            background-color: var(--sunrise-gold);
+            color: var(--charcoal-earth);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        footer {
+            background-color: var(--charcoal-earth);
+            color: var(--white);
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        main {
+            padding: 2rem;
+        }
+        
+        /* ============================================
+            Typography
+            ============================================ */
+        h1, h2 {
+            margin: 0.5rem 0;
+            color: var(--charcoal-earth);
+        }
+        
+        /* ============================================
+            Navigation
+            ============================================ */
+        .navbar {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background-color: var(--charcoal-earth);
+            margin: 0;
+        }
+        
+        .navbar li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .navbar li a:hover {
+            background-color: var(--savanna-green);
+        }
+        
+        /* ============================================
+            Buttons & Interactive Elements
+            ============================================ */
+        .button {
+            display: inline-block;
+            background-color: var(--nile-blue);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            background-color: var(--savanna-green);
+        }
+        
+        .button:active {
+            background-color: var(--earth-clay);
+        }
+        
+        /* Button Variants */
+        .button.secondary {
+            background-color: var(--earth-clay);
+        }
+        
+        .button.secondary:hover {
+            background-color: var(--savanna-green);
+        }
+        
+        .button.outline {
+            background-color: transparent;
+            color: var(--nile-blue);
+            border: 2px solid var(--nile-blue);
+        }
+        
+        .button.outline:hover {
+            background-color: var(--nile-blue);
+            color: var(--white);
+        }
       /* Hero Section */
       .hero {
         position: relative;
