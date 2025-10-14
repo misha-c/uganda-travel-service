@@ -1,45 +1,493 @@
 ---
 import "../styles/global.css";
-import Navbar from '../components/Navbar.astro';
-const title = "Hamidah's Super Fantastic Uganda Travel Services";
+const title = "Eco Tribe Adventures";
+const tagline = "Adventure with Purpose";
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
+    <meta name="description" content="Discover Africa through eco-conscious journeys that connect people, planet, and culture." />
+    <title>{title} - {tagline}</title>
+    <style>
+      /* Hero Section */
+      .hero {
+        position: relative;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: linear-gradient(135deg, var(--nile-blue) 0%, var(--savanna-green) 100%);
+        color: var(--white);
+        padding: 2rem;
+      }
+
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(46, 46, 46, 0.3);
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 900px;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        color: var(--white);
+        font-weight: bold;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        opacity: 0.95;
+      }
+
+      .hero-cta {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      /* Section Styles */
+      section {
+        padding: 4rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      section.dark {
+        background-color: var(--charcoal-earth);
+        color: var(--white);
+      }
+
+      section.accent {
+        background-color: var(--sand-beige);
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        color: var(--charcoal-earth);
+      }
+
+      .dark .section-title {
+        color: var(--white);
+      }
+
+      .section-subtitle {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        opacity: 0.9;
+      }
+
+      /* About Section */
+      .about-content {
+        line-height: 1.8;
+        font-size: 1.1rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .mission-box {
+        background-color: var(--sunrise-gold);
+        padding: 2rem;
+        border-radius: 8px;
+        margin-top: 2rem;
+        text-align: center;
+        color: var(--charcoal-earth);
+      }
+
+      /* Adventure Cards */
+      .adventure-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .adventure-card {
+        background-color: var(--white);
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .adventure-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .adventure-card h3 {
+        color: var(--nile-blue);
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .adventure-meta {
+        color: var(--savanna-green);
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+
+      /* Impact Section */
+      .impact-stats {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-icon {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--sunrise-gold);
+      }
+
+      /* Join Section */
+      .join-form {
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background-color: var(--white);
+        border-radius: 8px;
+      }
+
+      .join-form input {
+        width: 100%;
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+        border: 2px solid var(--savanna-green);
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+
+      .join-form button {
+        width: 100%;
+        padding: 1rem;
+        background-color: var(--nile-blue);
+        color: var(--white);
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .join-form button:hover {
+        background-color: var(--savanna-green);
+      }
+
+      /* Testimonials */
+      .testimonial-slider {
+        max-width: 800px;
+        margin: 2rem auto;
+      }
+
+      .testimonial {
+        background-color: var(--sand-beige);
+        padding: 2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--earth-clay);
+        margin-bottom: 1.5rem;
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+
+      .testimonial-author {
+        font-weight: bold;
+        color: var(--savanna-green);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--charcoal-earth);
+        color: var(--white);
+        padding: 3rem 2rem 1rem;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: var(--white);
+        text-decoration: none;
+      }
+
+      .footer-links a:hover {
+        color: var(--sunrise-gold);
+      }
+
+      .footer-motto {
+        text-align: center;
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        font-style: italic;
+        opacity: 0.8;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        
+        .hero p {
+          font-size: 1.2rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <Navbar />
     
     <!-- Hero Section -->
-    <header>
-      <h1>Welcome to {title}</h1>
-      <p>
-        Your guide to eco-tourism, adventure, and local culture in Uganda
+    <section class="hero", id="hero">
+      <div class="hero-content">
+        <h1>Adventure with Purpose.</h1>
+        <p>Discover Africa through eco-conscious journeys that connect people, planet, and culture.</p>
+        <div class="hero-cta">
+          <a href="#adventures" class="button">Explore Adventures</a>
+          <a href="#join" class="button secondary">Join the Tribe</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="accent">
+      <h2 class="section-title">We're More Than Travelers. We're a Tribe.</h2>
+      <div class="about-content">
+        <p>
+          Eco Tribe Adventures was born from a simple belief: <strong>travel should give back</strong>.
+        </p>
+        <p>
+          We design authentic, small-group adventures across Africa that celebrate nature, empower local communities, and protect the wild spaces that make this continent extraordinary.
+        </p>
+        <p>
+          At Eco Tribe Adventures, we travel to the untamed heart of Africa—guided by a simple truth: we belong to the land, and the land belongs to us. Our journeys go beyond destinations; they immerse travelers in the rhythm of local life, from the roar of the Nile to the quiet stories shared around a village fire.
+        </p>
+        <p>
+          You are not just a visitor; you're a valued participant, part of the tribe and the story. Every itinerary is thoughtfully crafted to make you feel inspired, connected, and proud to travel with purpose—uplifting communities, preserving ecosystems, and celebrating Africa's vibrant cultural soul.
+        </p>
+        
+        <div class="mission-box">
+          <h3>✳️ Our Mission</h3>
+          <p>
+            To connect travelers with authentic African eco-adventures that empower local communities, protect nature, and inspire a deeper respect for the planet.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Adventures Section -->
+    <section id="adventures">
+      <h2 class="section-title">Explore the Heart of Africa</h2>
+      <p class="section-subtitle">
+        Each Eco Tribe itinerary is crafted with local guides, community hosts, and conservation partners. Travel consciously, adventure freely.
       </p>
-    </header>
+      
+      <div class="adventure-grid">
+        <div class="adventure-card">
+          <h3>🌊 The Nile Awakening</h3>
+          <p class="adventure-meta">6 Days • Uganda</p>
+          <p>
+            Raft the Nile, hike rainforest trails, and share stories with riverside communities.
+          </p>
+          <a href="/adventures/nile-awakening" class="button">View Itinerary →</a>
+        </div>
 
-    <!-- Main Content -->
-    <main style="padding: 2rem;">
-      <section>
-        <h2>Explore Destinations</h2>
-        <p>Discover Uganda’s national parks, cultural experiences, and hidden gems.</p>
-        <a href={"/uganda-travel-service/destinations"} class="button">Explore Destinations! →</a>
-      </section>
+        <div class="adventure-card">
+          <h3>⛰️ Mountains & Markets of Kilimanjaro</h3>
+          <p class="adventure-meta">8 Days • Tanzania</p>
+          <p>
+            Trek the foothills, visit women's cooperatives, and sleep under African skies.
+          </p>
+          <a href="/adventures/kilimanjaro" class="button">View Itinerary →</a>
+        </div>
 
-      <section>
-        <h2>Plan Your Adventure</h2>
-        <p>Get tips, guides, and relocation advice to make your trip unforgettable.</p>
-        <a href={"/uganda-travel-service/plan"} class="button">Plan Your Adventure! →</a>
-      </section>
-    </main>
+        <div class="adventure-card">
+          <h3>🏜️ Sahara Soul Journey</h3>
+          <p class="adventure-meta">7 Days • Morocco</p>
+          <p>
+            Ride with nomads, learn desert survival, and experience Berber music by firelight.
+          </p>
+          <a href="/adventures/sahara-soul" class="button">View Itinerary →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="dark">
+      <h2 class="section-title">Travel That Gives Back</h2>
+      <p class="section-subtitle">
+        Every Eco Tribe Adventure directly supports local livelihoods, conservation efforts, and cultural preservation.
+      </p>
+
+      <div class="impact-stats">
+        <div class="stat-item">
+          <div class="stat-icon">🌱</div>
+          <div class="stat-number">12,400+</div>
+          <div>Trees Planted</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">👣</div>
+          <div class="stat-number">300+</div>
+          <div>Local Guides Impacted</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">💧</div>
+          <div class="stat-number">20</div>
+          <div>Clean Water Projects</div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="/impact" class="button">See Our Impact →</a>
+      </div>
+    </section>
+
+    <!-- Join the Tribe Section -->
+    <section id="join" class="accent">
+      <h2 class="section-title">Join the Tribe. Explore with Purpose.</h2>
+      <p class="section-subtitle">
+        Be part of a movement redefining what travel means. Get early access to new itineraries, eco travel tips, and Tribe-only offers.
+      </p>
+
+      <div class="join-form">
+        <form id="newsletter-form">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <input type="text" name="interests" placeholder="Travel Interests (optional)" />
+          <label style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+            <input type="checkbox" name="impact" />
+            <span>I want to travel with impact</span>
+          </label>
+          <button type="submit">Join Now</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+      <h2 class="section-title">Stories from the Tribe</h2>
+      
+      <div class="testimonial-slider">
+        <div class="testimonial">
+          <p class="testimonial-text">
+            "This was more than a trip—it was a reconnection with Africa's spirit."
+          </p>
+          <p class="testimonial-author">— Amirah, USA</p>
+        </div>
+
+        <div class="testimonial">
+          <p class="testimonial-text">
+            "I rafted, danced, planted trees, and made lifelong friends."
+          </p>
+          <p class="testimonial-author">— Kwame, Ghana</p>
+        </div>
+
+        <div class="testimonial">
+          <p class="testimonial-text">
+            "The best thing? Knowing my adventure left a positive footprint."
+          </p>
+          <p class="testimonial-author">— Elena, Spain</p>
+        </div>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer>
-      <p>© 2025 Uganda Travel Services</p>
-      <img src="/uganda-travel-service/uganda-flag.svg"  alt="Ugandan Flag - A crested crane on a field of Red, Yellow, and Black" width="200" />
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="#hero">Home</a>
+          <a href="#adventures">Adventures</a>
+          <a href="#impact">Impact</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-links">
+          <a href="https://instagram.com" target="_blank">Instagram</a>
+          <a href="https://youtube.com" target="_blank">YouTube</a>
+          <a href="https://facebook.com" target="_blank">Facebook</a>
+          <a href="https://tiktok.com" target="_blank">TikTok</a>
+          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-motto">
+        "Eco Tribe Adventures — Travel that connects people, planet, and culture."
+      </div>
+      <p style="text-align: center; margin-top: 1rem; opacity: 0.7;">
+        © 2025 Eco Tribe Adventures
+      </p>
     </footer>
+
+    <script>
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+
+      // Newsletter form handling
+      const form = document.getElementById('newsletter-form');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        // Add your form submission logic here
+        alert('Thank you for joining the tribe! We\'ll be in touch soon.');
+        form.reset();
+      });
+    </script>
   </body>
 </html>
