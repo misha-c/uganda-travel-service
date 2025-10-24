@@ -1,18 +1,17 @@
-/* src/styles/global.css */
+/* ============================================
+   Global CSS for Eco Tribe Adventures
+   ============================================ */
 
 /* ============================================
    CSS Custom Properties (Color Palette)
    ============================================ */
    :root {
-    /* Color Palette */
     --earth-clay: #B76E48;
     --savanna-green: #5C7A52;
     --nile-blue: #3A7CA5;
     --sunrise-gold: #E1A948;
     --charcoal-earth: #2E2E2E;
     --sand-beige: #EADAC3;
-    
-    /* Neutral for text on dark backgrounds */
     --white: #FFFFFF;
   }
   
@@ -28,6 +27,15 @@
     color: var(--charcoal-earth);
   }
   
+  h1, h2 {
+    margin: 0.5rem 0;
+    color: var(--charcoal-earth);
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
   /* ============================================
      Layout Components
      ============================================ */
@@ -38,23 +46,48 @@
     text-align: center;
   }
   
-  footer {
-    background-color: var(--charcoal-earth);
-    color: var(--white);
-    text-align: center;
-    padding: 1rem;
-  }
-  
   main {
     padding: 2rem;
   }
   
-  /* ============================================
-     Typography
-     ============================================ */
-  h1, h2 {
-    margin: 0.5rem 0;
-    color: var(--charcoal-earth);
+  footer {
+    background-color: var(--charcoal-earth);
+    color: var(--white);
+    padding: 3rem 2rem 1rem;
+    text-align: center;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .footer-links a {
+    color: var(--white);
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: var(--sunrise-gold);
+  }
+  
+  .footer-motto {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-style: italic;
+    opacity: 0.8;
   }
   
   /* ============================================
@@ -71,7 +104,6 @@
   
   .navbar li a {
     color: var(--white);
-    text-decoration: none;
     font-weight: bold;
     padding: 0.5rem 1rem;
     border-radius: 4px;
@@ -90,23 +122,23 @@
     background-color: var(--nile-blue);
     color: var(--white);
     padding: 0.6rem 1.2rem;
-    text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     border: none;
     cursor: pointer;
+    text-align: center;
   }
   
   .button:hover {
     background-color: var(--savanna-green);
+    transform: translateY(-1px);
   }
   
   .button:active {
     background-color: var(--earth-clay);
   }
   
-  /* Button Variants */
   .button.secondary {
     background-color: var(--earth-clay);
   }
@@ -124,4 +156,348 @@
   .button.outline:hover {
     background-color: var(--nile-blue);
     color: var(--white);
+  }
+  
+  /* ============================================
+     Hero Section
+     ============================================ */
+     .hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* top heading, bottom content */
+      align-items: center;
+      height: 70vh; /* adjust as needed */
+      padding: 2rem;
+      background: url('/public/BeeEaters.jpg') center/cover no-repeat;
+      color: var(--white);
+      overflow: hidden;
+    }
+    
+    /* Overlay gradient for readability */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.25) 100%);
+      z-index: 1;
+    }
+    
+    /* Hero content container */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      max-width: 900px;
+    }
+    
+    /* Title at top */
+    .hero h1 {
+      margin: 0;
+      font-size: 3.5rem;
+      text-align: center;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+    }
+    
+    /* Bottom container for paragraph + buttons */
+    .hero-bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      text-align: center;
+    }
+    
+    .hero-bottom p {
+      font-size: 1.5rem;
+      margin: 0;
+      opacity: 0.95;
+    }
+    
+    /* Buttons */
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    /* ================================
+       Responsive Adjustments
+       ================================ */
+    @media (max-width: 1024px) {
+      .hero h1 { font-size: 2.8rem; }
+      .hero-bottom p { font-size: 1.3rem; }
+    }
+    
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero-bottom p { font-size: 1.1rem; }
+    }
+    
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero-bottom p { font-size: 1rem; }
+    }
+  
+  /* ============================================
+     Sections
+     ============================================ */
+  section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  section.dark {
+    background-color: var(--charcoal-earth);
+    color: var(--white);
+  }
+  
+  section.accent {
+    background-color: var(--sand-beige);
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+  }
+  
+  /* ============================================
+     About Section
+     ============================================ */
+  .about-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .mission-box {
+    background-color: var(--sunrise-gold);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    color: var(--charcoal-earth);
+  }
+  
+  /* ============================================
+     Adventure Cards
+     ============================================ */
+  .adventure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+  }
+  
+  .adventure-card {
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .adventure-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .adventure-card h3 {
+    color: var(--nile-blue);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .adventure-meta {
+    color: var(--savanna-green);
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  /* ============================================
+     Impact Section
+     ============================================ */
+  .impact-stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--sunrise-gold);
+  }
+  
+  /* ============================================
+     Join the Tribe / Newsletter Form
+     ============================================ */
+  .join-form {
+    max-width: 500px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  
+  .join-form form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .join-form input[type="text"],
+  .join-form input[type="email"] {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 2px solid var(--savanna-green);
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  .join-form input[type="text"]:focus,
+  .join-form input[type="email"]:focus {
+    border-color: var(--nile-blue);
+    outline: none;
+  }
+
+  .join-form label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .join-form input[type="checkbox"] {
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+  
+  .join-form button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--nile-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .join-form button[type="submit"]:hover {
+    background-color: var(--savanna-green);
+    transform: translateY(-2px);
+  }
+
+  .join-image {
+    display: block;            
+    max-width: 100%;           
+    width: 600px;              
+    margin: 2rem auto;        
+    border-radius: 16px;      
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); 
+    object-fit: cover;        
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .join-image {
+      width: 90%;              /* slightly smaller on medium screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .join-image {
+      width: 100%;             /* full width on small screens */
+    }
+  }
+  
+  /* ============================================
+     Testimonials
+     ============================================ */
+  .testimonial-slider {
+    max-width: 800px;
+    margin: 2rem auto;
+  }
+  
+  .testimonial {
+    background-color: var(--sand-beige);
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--earth-clay);
+    margin-bottom: 1.5rem;
+  }
+  
+  .testimonial-text {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .testimonial-author {
+    font-weight: bold;
+    color: var(--savanna-green);
+  }
+  
+  /* ============================================
+     Responsive Design
+     ============================================ */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+  
+    .hero p {
+      font-size: 1.2rem;
+    }
+  
+    .section-title {
+      font-size: 2rem;
+    }
+  
+    .join-form {
+      padding: 2rem 1rem;
+    }
   }
