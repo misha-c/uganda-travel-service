@@ -169,7 +169,8 @@
       align-items: center;
       height: 70vh; /* adjust as needed */
       padding: 2rem;
-      background: url('/public/BeeEaters.jpg') center/cover no-repeat;
+      background: url('/uganda-travel-service/images/BeeEaters.jpg') center/cover no-repeat;
+      border-radius: 16px; 
       color: var(--white);
       overflow: hidden;
     }
