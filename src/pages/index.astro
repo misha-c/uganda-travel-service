@@ -4,7 +4,9 @@ const tagline = "Adventure with Purpose";
 import "../styles/global.css";
 
 // Get the base URL for proper asset paths
+// BASE_URL doesn't have trailing slash for public assets
 const baseUrl = import.meta.env.BASE_URL;
+const imagePath = baseUrl === '/' ? '' : baseUrl;
 ---
 
 <html lang="en">
@@ -13,7 +15,7 @@ const baseUrl = import.meta.env.BASE_URL;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Discover Africa through eco-conscious journeys that connect people, planet, and culture." />
     <title>{title} - {tagline}</title>
-    <style set:html={`.hero { background-image: url('${baseUrl}/images/BeeEaters.jpg'); }`}></style>
+    <style set:html={`.hero { background-image: url('${imagePath}/images/BeeEaters.jpg'); }`}></style>
   </head>
   <body>
     
@@ -127,7 +129,7 @@ const baseUrl = import.meta.env.BASE_URL;
     <!-- Join the Tribe Section -->
     <section id="join" class="accent">
       <h2 class="section-title">Join the Tribe. Explore with Purpose.</h2>
-      <img src={`${baseUrl}/images/Tribe.jpg`} alt="A group photo of Eco Tribe members with their arms up in the air, laughing and making silly faces" class="join-image" />
+      <img src={`${imagePath}/images/Tribe.jpg`} alt="A group photo of Eco Tribe members with their arms up in the air, laughing and making silly faces" class="join-image" />
       <p class="section-subtitle">
         Be part of a movement redefining what travel means. Get early access to new itineraries, eco travel tips, and Tribe-only offers.
       </p>
